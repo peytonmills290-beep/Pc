@@ -55,22 +55,3 @@ autofarmTab:AddDropdown({
 		print(Value)
 	end    
 })
-
-
-
-
-OrionLib:MakeNotification({
-	Name = "villainhub",
-	Content = "villainhub is in beta some features work for now",
-	Image = "rbxassetid://4483345998",
-	Time = 5
-})
-
-
-
-
-
-
-
-
-OrionLib:Init()
