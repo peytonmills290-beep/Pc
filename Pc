@@ -1,0 +1,52 @@
+-- OrionLib already exists from the loader
+
+local Window = OrionLib:MakeWindow({
+    Name = "Villainhub",
+    HidePremium = false,
+    SaveConfig = true,
+    ConfigFolder = "OrionTest"
+})
+
+local CombatTab = Window:MakeTab({
+    Name = "Combat",
+    Icon = "rbxassetid://4483345998",
+    PremiumOnly = false
+})
+
+CombatTab:AddDropdown({
+    Name = "Style Changer",
+    Default = "Hawk",
+    Options = {"Hawk","OMNI","Hitman","Philly"},
+    Callback = function(selected)
+        local player = game.Players.LocalPlayer
+        if player:FindFirstChild("leaderstats") and player.leaderstats:FindFirstChild("Class") then
+            player.leaderstats.Class.Value = selected
+        end
+    end
+})
+
+local TeleportTab = Window:MakeTab({
+    Name = "Teleport",
+    Icon = "rbxassetid://4483345998",
+    PremiumOnly = false
+})
+
+TeleportTab:AddDropdown({
+    Name = "Teleport",
+    Default = "Library",
+    Options = {"Library","Gym","Outside"},
+    Callback = function(place)
+        local player = game.Players.LocalPlayer
+        local hrp = player.Character:WaitForChild("HumanoidRootPart")
+
+        if place == "Library" then
+            hrp.CFrame = CFrame.new(-149.61, 4.57, 129.03)
+        elseif place == "Gym" then
+            hrp.CFrame = CFrame.new(-149.48, 4.57, 20.03)
+        elseif place == "Outside" then
+            hrp.CFrame = CFrame.new(-201.84, 6.75, 155.90)
+        end
+    end
+})
+
+OrionLib:Init()
