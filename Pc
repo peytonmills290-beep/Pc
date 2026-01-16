@@ -15,8 +15,8 @@ local CombatTab = Window:MakeTab({
 
 CombatTab:AddDropdown({
     Name = "Style Changer",
-    Default = "Hawk",
-    Options = {"Hawk","OMNI","Hitman","Philly"},
+    Default = "none",
+    Options = {"Hawk","OMNI","Hitman","Compound V","Ninja","Dukes","Muay Thai","Savage",","Philly"},
     Callback = function(selected)
         local player = game.Players.LocalPlayer
         if player:FindFirstChild("leaderstats") and player.leaderstats:FindFirstChild("Class") then
@@ -48,5 +48,38 @@ TeleportTab:AddDropdown({
         end
     end
 })
+
+
+local autofarmtab = Window:MakeTab({
+	Name = "Tab 1",
+	Icon = "rbxassetid://4483345998",
+	PremiumOnly = false
+})
+
+autofarmTab:AddDropdown({
+	Name = "combat",
+	Default = "1",
+	Options = {"Auto farm beta", "Kill aura beta"},
+	Callback = function(Value)
+		print(Value)
+	end    
+})
+
+
+
+
+OrionLib:MakeNotification({
+	Name = "villainhub",
+	Content = "villainhub is in beta some features work for now",
+	Image = "rbxassetid://4483345998",
+	Time = 5
+})
+
+
+
+
+
+
+
 
 OrionLib:Init()
